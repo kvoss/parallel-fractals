@@ -17,4 +17,4 @@ manager.o: manager.cpp manager.h
 worker.o: worker.cpp worker.h
 
 clean:
-	rm -f *.o *.ppm
+	-rm -f *.o *.ppm test_procedure-output mandelbrot_set
