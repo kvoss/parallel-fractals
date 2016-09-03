@@ -37,34 +37,34 @@ extern pthread_mutex_t sharingBox;	/* for sharing a job in MagicBox */
  * MandelbrotSet struct
  */
 typedef struct {
-	double ydiff, xdiff;	/* distances between adjoining pixels */
-	char** tab;		/* table with results */
+    double ydiff, xdiff;	/* distances between adjoining pixels */
+    char** tab;		/* table with results */
 
-	/* image's parameters */
-	double xmin, xmax;	/* x range */
-	double ymin, ymax; 	/* y range */
-	int resolution;	/* resolution of the picture */
+    /* image's parameters */
+    double xmin, xmax;	/* x range */
+    double ymin, ymax; 	/* y range */
+    int resolution;	/* resolution of the picture */
 
-	int maxiter;		/* maximal number of iterations */
-	double T;		/* threshold */
+    int maxiter;		/* maximal number of iterations */
+    double T;		/* threshold */
 
-	int num_proc;		/* number of threads */
-	int use_mb, use_omp;	/* whether to use MagicBox or not */
-	int sbs;		/* smallest box size for MagicBox (in square pixels) */
+    int num_proc;		/* number of threads */
+    int use_mb, use_omp;	/* whether to use MagicBox or not */
+    int sbs;		/* smallest box size for MagicBox (in square pixels) */
 
-	/* Workers' individual data */
-	int yl, yh, xl, xh;	/* assigned work */
-	int bl, bh;		/* assigned work - BoxLow BoxHigh */
-	int wID;		/* worker's ID */
-	pthread_mutex_t* mutt;	/* thread's mutex */
-	int status;		/* thread's status (0 - free, 1 - busy, 2 - released) */
+    /* Workers' individual data */
+    int yl, yh, xl, xh;	/* assigned work */
+    int bl, bh;		/* assigned work - BoxLow BoxHigh */
+    int wID;		/* worker's ID */
+    pthread_mutex_t* mutt;	/* thread's mutex */
+    int status;		/* thread's status (0 - free, 1 - busy, 2 - released) */
 
 } fdata;
 
-typedef struct
-{
-	double xmin, xmax;
-	double ymin, ymax;
+typedef struct {
+    double xmin, xmax;
+    double ymin, ymax;
 } cords;
 
 #endif
+
